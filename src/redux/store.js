@@ -4,7 +4,7 @@ import { shazamCoreApi } from './services/shazamCore'
 
 export const store = configureStore({
   reducer: {
-    playerReducer,
+    player: playerReducer,
     [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(shazamCoreApi.middleware),

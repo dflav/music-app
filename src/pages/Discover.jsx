@@ -1,5 +1,6 @@
 import React from 'react'
 import { genres } from '../assets/constants.js'
+import Error from '../components/Error.jsx'
 import Loader from '../components/Loader.jsx'
 import SongCard from '../components/SongCard.jsx'
 import { useGetTopChartsQuery } from '../redux/services/shazamCore.js'
@@ -10,7 +11,7 @@ const Discover = () => {
   const { data: songs, error, isFetching } = useGetTopChartsQuery()
 
   if (isFetching) return <Loader title='Loading songs...' />
-  if (error) return <div>Error!</div>
+  if (error) return <Error title={error.data.message} />
 
   return (
     <section className='flex flex-col'>
@@ -19,7 +20,7 @@ const Discover = () => {
         <select
           name='genres'
           id='genres'
-          className='bg-slate-900 text-gray-400 outline-none rounded-lg p-3 text-sm mt-5 sm:mt-0 border-r-8 border-r-slate-900'
+          className='bg-[#98D7C2] text-gray-800 outline-none rounded-full p-3 text-sm mt-5 sm:mt-0 border-r-8 border-r-[#98D7C2] cursor-pointer'
         >
           {genres.map(genre => (
             <option key={genre.value} value={genre.value}>
