@@ -12,8 +12,19 @@ const initialState = {
 const playerSlice = createSlice({
   name: 'player',
   initialState,
-  reducers: {},
+  reducers: {
+    setActiveSong: (state, action) => {
+      state.activeSong = action.payload.song
+      state.currentIndex = action.payload.index
+      state.currentPlaylist = action.payload.playlist
+      state.isActive = true
+      state.isPlaying = true
+    },
+    playSongToggle: state => {
+      state.isPlaying = !state.isPlaying
+    },
+  },
 })
 
-export const playerActions = playerSlice.actions
+export const { setActiveSong, playSongToggle } = playerSlice.actions
 export default playerSlice.reducer
