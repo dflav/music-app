@@ -6,7 +6,7 @@ import Searchbar from './components/Searchbar'
 function App() {
   return (
     <div className='flex'>
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className='flex-1 flex-col bg-gradient-to-br from-[#1A2A33] to-cyan-700'>
         <Searchbar />
         <div className='px-6 flex flex-col xl:flex-row-reverse overflow-y-auto hide-scrollbar h-[calc(100vh-68px)]'>
