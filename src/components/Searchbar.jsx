@@ -21,7 +21,7 @@ const Searchbar = () => {
         name='search-field'
         placeholder='What do you want to listen to?'
         value={searchTerm}
-        className='pl-12 py-[6px] rounded-full text-base placeholder-gray-500  sm:w-96 w-full shadow outline-none text-black'
+        className='pl-12 py-[6px] rounded-full text-base placeholder-gray-500  sm:w-96 w-[calc(100%-55px)] shadow outline-none text-black'
         onChange={searchChangeHandler}
       />
     </form>

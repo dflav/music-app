@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.hover-transition {
+.active {
+  @apply text-cyan-500;
+}
+
+.smooth-transition {
   transition: all 300ms ease-in-out;
 }
+
+.text-transition {
+  transition: all 200ms ease-in-out;
+}
+
+/* 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}*/

@@ -5,6 +5,12 @@ import Loader from '../components/Loader.jsx'
 import SongCard from '../components/SongCard.jsx'
 import { useGetTopChartsQuery } from '../redux/services/shazamCore.js'
 
+const selectGenre = genres.map(genre => (
+  <option key={genre.value} value={genre.value}>
+    {genre.title}
+  </option>
+))
+
 const Discover = () => {
   const genre = 'Pop'
 
@@ -20,13 +26,9 @@ const Discover = () => {
         <select
           name='genres'
           id='genres'
-          className='bg-[#98D7C2] text-gray-800 outline-none rounded-full p-3 text-sm mt-5 sm:mt-0 border-r-8 border-r-[#98D7C2] cursor-pointer'
+          className='bg-cyan-400 text-gray-800 outline-none rounded-full p-3 text-sm mt-5 sm:mt-0 border-r-8 border-r-cyan-400 cursor-pointer'
         >
-          {genres.map(genre => (
-            <option key={genre.value} value={genre.value}>
-              {genre.title}
-            </option>
-          ))}
+          {selectGenre}
         </select>
       </div>
 
