@@ -43,7 +43,7 @@ const Sidebar = () => {
       </nav>
 
       <nav
-        className={`md:hidden flex flex-col bg-gradient-to-tl from-white/10 to-cyan-600 backdrop-blur-lg absolute top-0 h-screen w-2/3 z-20 p-6 smooth-transition ${
+        className={`md:hidden flex flex-col bg-gradient-to-tl from-white/10 to-cyan-700 backdrop-blur-lg absolute top-0 h-screen w-2/3 z-20 p-6 smooth-transition ${
           mobileMenu ? 'left-0' : '-left-full'
         } `}
       >

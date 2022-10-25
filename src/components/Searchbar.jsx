@@ -13,7 +13,7 @@ const Searchbar = () => {
     <form
       onSubmit={searchSubmitHandler}
       autoComplete='off'
-      className='p-4 flex text-gray-500 focus-within:text-gray-900 relative '
+      className='p-4 mb-1 flex text-gray-500 focus-within:text-gray-900 relative '
     >
       <FiSearch aria-hidden='true' className='w-6 h-6 absolute z-10 top-[22px] left-7' />
       <input

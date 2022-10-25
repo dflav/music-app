@@ -2,6 +2,7 @@ import Sidebar from './components/Sidebar'
 import { Routes, Route } from 'react-router-dom'
 import Discover from './pages/Discover'
 import Searchbar from './components/Searchbar'
+import MostPopular from './components/MostPopular'
 
 function App() {
   return (
@@ -9,8 +10,10 @@ function App() {
       <Sidebar />
       <div className='flex-1 flex-col bg-gradient-to-br from-[#1A2A33] to-cyan-700'>
         <Searchbar />
-        <div className='px-6 flex flex-col xl:flex-row-reverse overflow-y-auto hide-scrollbar h-[calc(100vh-68px)]'>
-          <div className='xl:sticky relative top-0 h-fit'>Most Popular</div>
+        <div className='px-6 flex flex-col xl:flex-row-reverse overflow-y-auto hide-scrollbar h-[calc(100vh-72px)]'>
+          <div className='xl:sticky top-0 h-fit'>
+            <MostPopular />
+          </div>
           <div className='flex-1 h-fit pb-40'>
             <Routes>
               <Route path='/' element={<Discover />} />
