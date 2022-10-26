@@ -57,7 +57,11 @@ const MostPopular = () => {
           className='mt-4'
         >
           {topCharts.map(song => (
-            <SwiperSlide key={song.key} style={{ width: '25% ', height: 'auto' }}>
+            <SwiperSlide
+              key={song.key}
+              style={{ width: '25% ', height: 'auto' }}
+              className='shadow-lg rounded-full animate-slideright'
+            >
               <Link to={`/artists/${song.artists[0].adamid}`}>
                 <img
                   src={song.images.background}
