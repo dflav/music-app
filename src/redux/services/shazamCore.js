@@ -1,16 +1,3 @@
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     'X-RapidAPI-Key': '294a2980bamsh034baece2c0958fp1a2efcjsn308635db103a',
-//     'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com',
-//   },
-// }
-
-// fetch('https://shazam-core.p.rapidapi.com/v1/charts/world', options)
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err))
-
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const shazamCoreApi = createApi({
@@ -26,7 +13,10 @@ export const shazamCoreApi = createApi({
   }),
   endpoints: builder => ({
     getTopCharts: builder.query({ query: () => '/charts/world' }),
+    getSongDetails: builder.query({
+      query: track_id => `https://shazam-core.p.rapidapi.com/v1/tracks/details?track_id=${track_id}`,
+    }),
   }),
 })
 
-export const { useGetTopChartsQuery } = shazamCoreApi
+export const { useGetTopChartsQuery, getSongDetails } = shazamCoreApi
