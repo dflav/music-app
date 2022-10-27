@@ -40,7 +40,7 @@ function SongCard({ song, index, playlist }) {
         </span>
         <span className='mt-1 text-gray-300 text-sm truncate'>
           <Link
-            to={`/artists/${song.artists[0].adamid}`}
+            to={`/artists/${song.artists?.[0].adamid}`}
             className='hover:underline'
             title={song.subtitle}
             onClick={linkClick}

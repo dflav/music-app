@@ -14,7 +14,7 @@ const MusicPlayer = () => {
     }
   }, [activeSong, isPlaying])
 
-  return <audio ref={audioRef} src={activeSong?.hub?.actions[1]?.uri} type='audio/mpeg' />
+  return <audio ref={audioRef} src={activeSong?.hub?.actions?.[1]?.uri} type='audio/mpeg' />
 }
 
 export default MusicPlayer

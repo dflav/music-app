@@ -28,7 +28,7 @@ const TopChartCard = ({ song, index, playSongHandler, songActionsHandler }) => {
 
           <span className='text-base text-gray-300 mt-1'>
             <Link
-              to={`/artists/${song.artists[0].adamid}`}
+              to={`/artists/${song.artists?.[0].adamid}`}
               className='hover:underline'
               title={song.subtitle}
               onClick={linkClick}

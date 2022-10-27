@@ -4,18 +4,16 @@ import Error from '../components/Error'
 import Loader from '../components/Loader'
 import DetailsHeader from '../components/DetailsHeader'
 import { useGetRelatedSongsQuery, useGetSongDetailsQuery } from '../redux/services/shazamCore'
-// import { useDispatch } from 'react-redux'
-// import { playSongToggle, setActiveSong } from '../redux/features/playerSlice'
-// import RelatedSongCard from '../components/RelatedSongCard'
+import { useDispatch } from 'react-redux'
+import { playSongToggle, setActiveSong } from '../redux/features/playerSlice'
+import RelatedSongCard from '../components/RelatedSongCard'
 
 const SongDetails = () => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const { track_id } = useParams()
 
   const { data: songData, isFetching: isFetchingSongdetails } = useGetSongDetailsQuery(track_id)
   const { data: relatedSongs, isFetching: isFetchingrelatedSongs, error } = useGetRelatedSongsQuery(track_id)
-
-  console.log(relatedSongs)
 
   const lyrics =
     songData?.sections[1].type === 'LYRICS' &&
@@ -25,8 +23,8 @@ const SongDetails = () => {
       </Fragment>
     ))
 
-  // const playSongHandler = (song, index) => dispatch(setActiveSong({ song, index, relatedSongs }))
-  // const songActionsHandler = () => dispatch(playSongToggle())
+  const playSongHandler = (song, index) => dispatch(setActiveSong({ song, index, relatedSongs }))
+  const songActionsHandler = () => dispatch(playSongToggle())
 
   if (isFetchingSongdetails || isFetchingrelatedSongs) return <Loader title='Loading song details...' />
   if (error) return <Error />
@@ -50,20 +48,18 @@ const SongDetails = () => {
         <h1 className='text-3xl font-bold text-white'>Related Songs:</h1>
 
         <div className='mt-6 w-full flex flex-col'>
-          {/* {relatedSongs.map((song, index) => {
-            console.log(song)
-            return (
-              <RelatedSongCard
-                key={song?.key}
-                song={song}
-                index={index}
-                // id={song?.artists[0]?.adamid}
-                img={song?.images?.coverart}
-                playSongHandler={() => playSongHandler(song, index)}
-                songActionsHandler={songActionsHandler}
-              />
-            )
-          })} */}
+          {relatedSongs?.map((song, i) => (
+            <RelatedSongCard
+              key={song.key}
+              song={song}
+              img={song.images?.coverart}
+              title={song.title}
+              subtitle={song.subtitle}
+              index={i}
+              playSongHandler={() => playSongHandler(song, i)}
+              songActionsHandler={songActionsHandler}
+            />
+          ))}
         </div>
       </div>
     </section>
