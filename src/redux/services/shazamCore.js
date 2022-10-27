@@ -14,9 +14,16 @@ export const shazamCoreApi = createApi({
   endpoints: builder => ({
     getTopCharts: builder.query({ query: () => '/charts/world' }),
     getSongDetails: builder.query({
-      query: track_id => `https://shazam-core.p.rapidapi.com/v1/tracks/details?track_id=${track_id}`,
+      query: track_id => `/tracks/details?track_id=${track_id}`,
+    }),
+    getRelatedSongs: builder.query({
+      query: track_id => `/tracks/related?track_id=${track_id}`,
+    }),
+    getArtistDetails: builder.query({
+      query: artist_id => `/artists/details?artist_id=${artist_id}`,
     }),
   }),
 })
 
-export const { useGetTopChartsQuery, getSongDetails } = shazamCoreApi
+export const { useGetTopChartsQuery, useGetSongDetailsQuery, useGetRelatedSongsQuery, useGetArtistDetailsQuery } =
+  shazamCoreApi

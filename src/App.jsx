@@ -5,9 +5,9 @@ import Searchbar from './components/Searchbar'
 import MostPopular from './components/MostPopular'
 import SongDetails from './pages/SongDetails'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
+import ArtistDetails from './pages/ArtistDetails'
 
 function App() {
-  console.log(process.env.REACT_APP_SHAZAM_CORE_RAPID_API_KEY)
   return (
     <div className='flex'>
       <Sidebar />
@@ -23,8 +23,8 @@ function App() {
               <Route path='/top-artists' />
               <Route path='/top-charts' />
               <Route path='/around-you' />
-              <Route path='/artists/:id' />
-              <Route path='/songs/:id' element={<SongDetails />} />
+              <Route path='/artists/:artist_id' element={<ArtistDetails />} />
+              <Route path='/songs/:track_id' element={<SongDetails />} />
               <Route path='/search/:searchTerm' />
             </Routes>
           </div>
