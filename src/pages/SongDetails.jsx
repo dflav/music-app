@@ -4,8 +4,8 @@ import Error from '../components/Error'
 import Loader from '../components/Loader'
 import DetailsHeader from '../components/DetailsHeader'
 import { useGetRelatedSongsQuery, useGetSongDetailsQuery } from '../redux/services/shazamCore'
-import { useDispatch } from 'react-redux'
-import { playSongToggle, setActiveSong } from '../redux/features/playerSlice'
+// import { useDispatch } from 'react-redux'
+// import { playSongToggle, setActiveSong } from '../redux/features/playerSlice'
 // import RelatedSongCard from '../components/RelatedSongCard'
 
 const SongDetails = () => {
@@ -14,6 +14,8 @@ const SongDetails = () => {
 
   const { data: songData, isFetching: isFetchingSongdetails } = useGetSongDetailsQuery(track_id)
   const { data: relatedSongs, isFetching: isFetchingrelatedSongs, error } = useGetRelatedSongsQuery(track_id)
+
+  console.log(relatedSongs)
 
   const lyrics =
     songData?.sections[1].type === 'LYRICS' &&
