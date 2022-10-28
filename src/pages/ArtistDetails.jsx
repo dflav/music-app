@@ -14,6 +14,7 @@ const ArtistDetails = () => {
 
   if (isFetching) return <Loader title='Loading artist details...' />
   if (error) return <Error />
+
   return (
     <section className='flex flex-col'>
       <DetailsHeader title={artist?.name} img={artist?.artwork?.url} genre={artist?.genreNames[0]} />

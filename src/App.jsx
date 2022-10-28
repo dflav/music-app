@@ -6,6 +6,9 @@ import MostPopular from './components/MostPopular'
 import SongDetails from './pages/SongDetails'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import ArtistDetails from './pages/ArtistDetails'
+import AroundYou from './pages/AroundYou'
+import TopCharts from './pages/TopCharts'
+import TopArtists from './pages/TopArtists'
 
 function App() {
   return (
@@ -20,9 +23,9 @@ function App() {
           <div className='flex-1 h-fit pb-40'>
             <Routes>
               <Route path='/' element={<Discover />} />
-              <Route path='/top-artists' />
-              <Route path='/top-charts' />
-              <Route path='/around-you' />
+              <Route path='/top-artists' element={<TopArtists />} />
+              <Route path='/top-charts' element={<TopCharts />} />
+              <Route path='/around-you' element={<AroundYou />} />
               <Route path='/artists/:artist_id' element={<ArtistDetails />} />
               <Route path='/songs/:track_id' element={<SongDetails />} />
               <Route path='/search/:searchTerm' />
