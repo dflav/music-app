@@ -28,8 +28,8 @@ const AroundYou = () => {
     })
   }, [])
 
-  if (isError && error) return <Error />
-  if (isLoading && isFetching) return <Loader title='Loading songs around you...' />
+  if (isError || error) return <Error />
+  if (isLoading || isFetching) return <Loader title='Loading songs around you...' />
 
   return (
     <section className='flex flex-col'>
