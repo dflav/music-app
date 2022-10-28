@@ -24,7 +24,7 @@ const ArtistDetails = () => {
         <div className='mt-6 w-full flex flex-col'>
           {Object.values(artistData?.songs)?.map((song, i) => (
             <RelatedSongCard
-              key={song.key}
+              key={artist_id + i}
               song={song}
               img={song?.attributes?.artwork?.url}
               title={song?.attributes?.name}
