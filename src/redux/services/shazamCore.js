@@ -28,6 +28,9 @@ export const shazamCoreApi = createApi({
     getChartsByGenre: builder.query({
       query: genre_code => `/charts/genre-world?genre_code=${genre_code}`,
     }),
+    getChartsBySearch: builder.query({
+      query: searchTerm => `/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
+    }),
   }),
 })
 
@@ -38,4 +41,5 @@ export const {
   useGetArtistDetailsQuery,
   useGetChartsByCountryQuery,
   useGetChartsByGenreQuery,
+  useGetChartsBySearchQuery,
 } = shazamCoreApi

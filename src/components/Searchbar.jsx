@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 
 const Searchbar = () => {
+  const navigate = useNavigate()
   const [searchTerm, setSearchTerm] = useState('')
 
   const searchChangeHandler = event => setSearchTerm(event.target.value)
   const searchSubmitHandler = event => {
     event.preventDefault()
+    navigate(`search/${searchTerm}`)
   }
 
   return (

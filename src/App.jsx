@@ -9,6 +9,7 @@ import ArtistDetails from './pages/ArtistDetails'
 import AroundYou from './pages/AroundYou'
 import TopCharts from './pages/TopCharts'
 import TopArtists from './pages/TopArtists'
+import Search from './pages/Search'
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
               <Route path='/around-you' element={<AroundYou />} />
               <Route path='/artists/:artist_id' element={<ArtistDetails />} />
               <Route path='/songs/:track_id' element={<SongDetails />} />
-              <Route path='/search/:searchTerm' />
+              <Route path='/search/:searchTerm' element={<Search />} />
             </Routes>
           </div>
         </div>
